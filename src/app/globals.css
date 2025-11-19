@@ -11,26 +11,32 @@
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-heading: 'Inter', sans-serif;
 
-  /* ===== LIFEFOCUS COLOR SYSTEM (from design reference) ===== */
-  /* Primary Gradient Colors */
-  --color-mint: 170 54% 64%;        /* #70D9C4 - Mint Green */
-  --color-sky: 197 64% 62%;         /* #5DADE2 - Sky Blue */
-  --color-teal: 169 44% 54%;        /* #5DBFAA - Teal Mint */
-  --color-purple: 248 79% 67%;      /* #7B68EE - Purple Accent */
-  --color-teal-dark: 170 36% 44%;   /* #4A9B8E - Dark Teal */
+  /* ===== LIFEFOCUS COLOR SYSTEM (Enhanced & Vibrant) ===== */
+  /* Primary Gradient Colors - More Vibrant */
+  --color-mint: 165 70% 55%;        /* #2DD4BF - Vibrant Teal */
+  --color-sky: 199 89% 48%;         /* #0EA5E9 - Bright Sky Blue */
+  --color-teal: 173 80% 40%;        /* #14B8A6 - Deep Teal */
+  --color-purple: 271 91% 65%;      /* #A855F7 - Rich Purple */
+  --color-indigo: 244 84% 67%;      /* #6366F1 - Deep Indigo */
+  --color-rose: 350 89% 60%;        /* #F43F5E - Vibrant Rose */
 
-  /* Accent Colors */
-  --color-orange: 30 100% 60%;      /* #FF9933 - Orange Badge */
-  --color-icon-blue: 195 77% 84%;   /* #B8E6F5 - Light Blue Icon BG */
-  --color-icon-mint: 165 73% 83%;   /* #B8F0E6 - Light Mint Icon BG */
+  /* Accent Colors - Enhanced */
+  --color-orange: 25 95% 53%;       /* #F97316 - Vibrant Orange */
+  --color-amber: 38 92% 50%;        /* #F59E0B - Rich Amber */
+  --color-emerald: 158 64% 52%;     /* #10B981 - Fresh Emerald */
+  --color-icon-blue: 199 95% 74%;   /* #7DD3FC - Soft Blue BG */
+  --color-icon-mint: 165 85% 75%;   /* #5EEAD4 - Soft Mint BG */
+  --color-icon-purple: 271 85% 85%; /* #E9D5FF - Soft Purple BG */
 
-  /* Neutral Colors */
+  /* Neutral Colors - Modern */
   --color-white: 0 0% 100%;         /* #FFFFFF */
-  --color-light-gray: 0 0% 96%;     /* #F5F5F5 */
-  --color-dark-text: 210 29% 24%;   /* #2C3E50 */
+  --color-light-gray: 220 14% 96%;  /* #F8FAFC - Slightly cool gray */
+  --color-medium-gray: 220 13% 91%; /* #E2E8F0 - Medium gray */
+  --color-dark-text: 222 47% 11%;   /* #1E293B - Deep slate */
+  --color-muted-text: 215 16% 47%;  /* #64748B - Muted slate */
 
   /* ===== STANDARD SHADCN/UI MAPPINGS ===== */
-  --background: var(--color-white);
+  --background: var(--color-light-gray);
   --foreground: var(--color-dark-text);
 
   --card: var(--color-white);
@@ -39,29 +45,29 @@
   --popover: var(--color-white);
   --popover-foreground: var(--color-dark-text);
 
-  /* Primary uses Sky Blue */
+  /* Primary uses Bright Sky Blue */
   --primary: var(--color-sky);
   --primary-foreground: var(--color-white);
 
-  /* Secondary uses Mint Green */
-  --secondary: var(--color-mint);
+  /* Secondary uses Vibrant Teal */
+  --secondary: var(--color-teal);
   --secondary-foreground: var(--color-white);
 
-  /* Accent uses Purple */
+  /* Accent uses Rich Purple */
   --accent: var(--color-purple);
   --accent-foreground: var(--color-white);
 
-  /* Muted uses light gray */
-  --muted: var(--color-light-gray);
-  --muted-foreground: var(--color-dark-text);
+  /* Muted uses medium gray */
+  --muted: var(--color-medium-gray);
+  --muted-foreground: var(--color-muted-text);
 
-  /* Destructive: Clean red */
-  --destructive: 0 70% 50%;
+  /* Destructive: Vibrant Rose */
+  --destructive: var(--color-rose);
   --destructive-foreground: var(--color-white);
 
-  /* Borders */
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
+  /* Borders - Subtle */
+  --border: var(--color-medium-gray);
+  --input: var(--color-medium-gray);
   --ring: var(--color-sky);
 
   /* Border Radius (from design) */
@@ -325,19 +331,31 @@ select {
   box-shadow: var(--shadow-phone);
 }
 
-/* Gradient Utilities (from design reference) */
+/* Gradient Utilities - Enhanced & Vibrant */
 .gradient-primary {
   background: linear-gradient(135deg, hsl(var(--color-mint)) 0%, hsl(var(--color-sky)) 100%);
 }
 
+.gradient-hero {
+  background: linear-gradient(135deg, hsl(var(--color-indigo)) 0%, hsl(var(--color-purple)) 50%, hsl(var(--color-rose)) 100%);
+}
+
 .gradient-card-mint {
-  background: hsl(var(--color-teal));
+  background: linear-gradient(135deg, hsl(var(--color-mint)) 0%, hsl(var(--color-teal)) 100%);
 }
 
 .gradient-card-blue {
-  background: hsl(var(--color-sky));
+  background: linear-gradient(135deg, hsl(var(--color-sky)) 0%, hsl(var(--color-indigo)) 100%);
 }
 
 .gradient-card-purple {
-  background: hsl(var(--color-purple));
+  background: linear-gradient(135deg, hsl(var(--color-purple)) 0%, hsl(var(--color-rose)) 100%);
+}
+
+.gradient-card-orange {
+  background: linear-gradient(135deg, hsl(var(--color-orange)) 0%, hsl(var(--color-amber)) 100%);
+}
+
+.gradient-card-emerald {
+  background: linear-gradient(135deg, hsl(var(--color-emerald)) 0%, hsl(var(--color-mint)) 100%);
 }
