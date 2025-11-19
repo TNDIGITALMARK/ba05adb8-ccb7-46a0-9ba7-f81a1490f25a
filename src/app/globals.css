@@ -1,59 +1,96 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* =============================================================================
+   LIFEFOCUS DESIGN SYSTEM - PIXEL-PERFECT SPECIFICATION
+   Design reference: ai-generated-preview.png
+   ============================================================================= */
 
 :root {
-  /* Pure white background with crisp black text */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
+  /* ===== FONTS ===== */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Inter', sans-serif;
 
-  /* Clean white cards with black text */
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 0%;
+  /* ===== LIFEFOCUS COLOR SYSTEM (from design reference) ===== */
+  /* Primary Gradient Colors */
+  --color-mint: 170 54% 64%;        /* #70D9C4 - Mint Green */
+  --color-sky: 197 64% 62%;         /* #5DADE2 - Sky Blue */
+  --color-teal: 169 44% 54%;        /* #5DBFAA - Teal Mint */
+  --color-purple: 248 79% 67%;      /* #7B68EE - Purple Accent */
+  --color-teal-dark: 170 36% 44%;   /* #4A9B8E - Dark Teal */
 
-  /* Popovers with white background */
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
+  /* Accent Colors */
+  --color-orange: 30 100% 60%;      /* #FF9933 - Orange Badge */
+  --color-icon-blue: 195 77% 84%;   /* #B8E6F5 - Light Blue Icon BG */
+  --color-icon-mint: 165 73% 83%;   /* #B8F0E6 - Light Mint Icon BG */
 
-  /* Primary: Black with white text */
-  --primary: 0 0% 0%;
-  --primary-foreground: 0 0% 100%;
+  /* Neutral Colors */
+  --color-white: 0 0% 100%;         /* #FFFFFF */
+  --color-light-gray: 0 0% 96%;     /* #F5F5F5 */
+  --color-dark-text: 210 29% 24%;   /* #2C3E50 */
 
-  /* Secondary: Light gray background with black text */
-  --secondary: 0 0% 97%;
-  --secondary-foreground: 0 0% 0%;
+  /* ===== STANDARD SHADCN/UI MAPPINGS ===== */
+  --background: var(--color-white);
+  --foreground: var(--color-dark-text);
 
-  /* Muted: Subtle gray with darker text */
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 40%;
+  --card: var(--color-white);
+  --card-foreground: var(--color-dark-text);
 
-  /* Accent: Light gray */
-  --accent: 0 0% 96%;
-  --accent-foreground: 0 0% 0%;
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-dark-text);
+
+  /* Primary uses Sky Blue */
+  --primary: var(--color-sky);
+  --primary-foreground: var(--color-white);
+
+  /* Secondary uses Mint Green */
+  --secondary: var(--color-mint);
+  --secondary-foreground: var(--color-white);
+
+  /* Accent uses Purple */
+  --accent: var(--color-purple);
+  --accent-foreground: var(--color-white);
+
+  /* Muted uses light gray */
+  --muted: var(--color-light-gray);
+  --muted-foreground: var(--color-dark-text);
 
   /* Destructive: Clean red */
   --destructive: 0 70% 50%;
-  --destructive-foreground: 0 0% 100%;
+  --destructive-foreground: var(--color-white);
 
-  /* Borders: Subtle gray */
+  /* Borders */
   --border: 0 0% 90%;
   --input: 0 0% 90%;
-  --ring: 0 0% 0%;
+  --ring: var(--color-sky);
 
-  /* Minimal rounded corners */
-  --radius: 0.375rem;
+  /* Border Radius (from design) */
+  --radius: 1rem;                   /* 16px - card radius */
+  --radius-button: 1.5rem;          /* 24px - button pill shape */
+  --radius-icon: 50%;               /* full circle */
 
-  /* Sidebar: Clean white with black text */
-  --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 0 0% 0%;
-  --sidebar-primary: 0 0% 0%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 0%;
+  /* Sidebar colors */
+  --sidebar-background: var(--color-white);
+  --sidebar-foreground: var(--color-dark-text);
+  --sidebar-primary: var(--color-sky);
+  --sidebar-primary-foreground: var(--color-white);
+  --sidebar-accent: var(--color-light-gray);
+  --sidebar-accent-foreground: var(--color-dark-text);
   --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 0%;
+  --sidebar-ring: var(--color-sky);
+
+  /* ===== SPACING SYSTEM (8px base) ===== */
+  --spacing-xs: 0.5rem;    /* 8px */
+  --spacing-sm: 1rem;      /* 16px */
+  --spacing-md: 1.5rem;    /* 24px */
+  --spacing-lg: 2rem;      /* 32px */
+  --spacing-xl: 3rem;      /* 48px */
+  --spacing-2xl: 4rem;     /* 64px */
+
+  /* ===== SHADOWS (from design reference) ===== */
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-button: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-phone: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .dark {
@@ -168,28 +205,102 @@ All colors MUST be HSL.
   border-color: hsl(var(--border));
 }
 
-body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  font-feature-settings: "rlig" 1, "calt" 1;
+/* =============================================================================
+   GLOBAL STYLES - Typography & Base Elements
+   ============================================================================= */
+
+html {
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  font-feature-settings: "rlig" 1, "calt" 1;
   text-rendering: optimizeLegibility;
 }
 
-/* Minimal, clean typography */
-h1, h2, h3, h4, h5, h6 {
+/* Typography Scale (from design reference) */
+h1 {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;   /* 36px */
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: hsl(var(--foreground));
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;    /* 24px */
   font-weight: 600;
-  letter-spacing: -0.025em;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;  /* 18px */
+  font-weight: 600;
+  line-height: 1.4;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.5rem;
+}
+
+h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-size: 1rem;      /* 16px */
+  font-weight: 600;
+  line-height: 1.5;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Button Default Styles */
+button {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 0.875rem;  /* 14px */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Link Styles */
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: hsl(var(--color-teal));
+}
+
+/* Form Element Defaults */
+input,
+textarea,
+select {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.5;
   color: hsl(var(--foreground));
 }
 
-/* Clean button styles */
-button {
-  font-weight: 500;
-}
-
-/* Subtle shadows for depth */
+/* Shadow Utilities (from design reference) */
 .shadow-sm {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
@@ -200,4 +311,33 @@ button {
 
 .shadow-md {
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+.shadow-button {
+  box-shadow: var(--shadow-button);
+}
+
+.shadow-phone {
+  box-shadow: var(--shadow-phone);
+}
+
+/* Gradient Utilities (from design reference) */
+.gradient-primary {
+  background: linear-gradient(135deg, hsl(var(--color-mint)) 0%, hsl(var(--color-sky)) 100%);
+}
+
+.gradient-card-mint {
+  background: hsl(var(--color-teal));
+}
+
+.gradient-card-blue {
+  background: hsl(var(--color-sky));
+}
+
+.gradient-card-purple {
+  background: hsl(var(--color-purple));
 }
